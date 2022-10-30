@@ -17,6 +17,8 @@ class MainWindow(QDialog):
         self.setWindowIcon(QtGui.QIcon('logo.png'))
         self.Browse.setToolTip("Click to select files from your PC")
         self.Visualize.setToolTip("Click to plot the Graph from selected CSV file")
+        self.Save.setToolTip("Click to save the plot")
+        self.Next.setToolTip("Click to get next plot")
         self.path=os.getcwd()
         self.valuelist=[]
         self.index=0
@@ -24,13 +26,18 @@ class MainWindow(QDialog):
         self.filename=''
         self.Browse.clicked.connect(self.browsefiles)
         self.Visualize.clicked.connect(self.visualization)
+        self.Save.clicked.connect(self.savefunction)
+        self.Next.clicked.connect(self.nextfunction)
+
+    def nextfunction(self):
+        self.visualization()
 
 
-    def browsefiles(self):
+    def browsefiles(self): // function to browse the files.
         self.filename=QFileDialog.getOpenFileName(self,'Open File','D:','CSV files(*.csv)')
         self.inputfile.setText(self.filename[0])
 
-    def visualization(self):
+    def visualization(self): // function to visualize and generate the graph.
         try:
             f=self.filename[0]
             df=pd.read_csv(f)
@@ -58,14 +65,32 @@ class MainWindow(QDialog):
         except:
             f=''
 
+    def savefunction(self):
+        try:
+            # print(self.valuelist)
+            # print(self.index)
+            # print(self.data)
+            f=self.filename[0]
+            df=pd.read_csv(f)
+            plt.pie(self.valuelist,labels=None)
+            plt.title("COVID-19 Data Analysis" + '\n' + 'Country: ' + df['Country'][self.index])
+            plt.legend(self.data, bbox_to_anchor=(0.67,0.997), loc="upper left")
+            file=QFileDialog.getSaveFileName(widget,"Save the Plot",'default.png','PNG files(*.png)')
+            plt.savefig(file[0])
+            #print(file)
+        except:
+            f = ''
+
+
 app=QApplication(sys.argv)
 m = MainWindow()
 widget=QtWidgets.QStackedWidget()
 widget.addWidget(m)
-widget.setFixedWidth(686)
-widget.setFixedHeight(806)
+widget.setFixedWidth(900)
+widget.setFixedHeight(800)
 widget.show()
 app.exec_()
-if os.path.exists('idea.png'):
-    os.remove('idea.png')
-sys.exit()  
+if os.path.exists("idea.png") or os.path.exists(".png"):
+  os.remove("idea.png")
+  os.remove(".png")
+sys.exit() 
