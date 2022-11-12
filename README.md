@@ -16,6 +16,10 @@ pip install pandas
 pip install matplotlib
 pip install PyQt5 
 ```
+
+### 1. pandas 
+Pandas is an open-source library that is made mainly for working with relational or labeled data both easily and intuitively.
+
 These are the following steps to build covid 19 - Data Visualizer project in python :
 
 - Import libraries.
