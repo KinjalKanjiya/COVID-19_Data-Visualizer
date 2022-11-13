@@ -17,13 +17,17 @@ pip install matplotlib
 pip install PyQt5 
 ```
 
+## Short intro to modules that had been used:
 ### 1. pandas 
 Pandas is an open-source library that is made mainly for working with relational or labeled data both easily and intuitively.
 
 ### 2. matplotlib 
 Matplotlib is an amazing visualization library in Python for 2D plots of arrays. Matplotlib is a multi-platform data visualization library built on NumPy arrays and designed to work with the broader SciPy stack. It was introduced by John Hunter in the year 2002.
 
-These are the following steps to build covid 19 - Data Visualizer project in python :
+### 3. Pyqt5
+PyQt5 is the latest version of a GUI widgets toolkit developed by Riverbank Computing. It is a Python interface for Qt, one of the most powerful, and popular cross-platform GUI library. PyQt5 is a blend of Python programming language and the Qt library. 
+
+> <h3>These are the following steps to build covid 19 - Data Visualizer project in python :</h3>
 
 - Import libraries.
 - Create display window.
