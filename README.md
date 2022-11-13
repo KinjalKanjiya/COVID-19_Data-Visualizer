@@ -16,6 +16,13 @@ pip install pandas
 pip install matplotlib
 pip install PyQt5 
 ```
+
+### 1. pandas 
+Pandas is an open-source library that is made mainly for working with relational or labeled data both easily and intuitively.
+
+### 2. matplotlib 
+Matplotlib is an amazing visualization library in Python for 2D plots of arrays. Matplotlib is a multi-platform data visualization library built on NumPy arrays and designed to work with the broader SciPy stack. It was introduced by John Hunter in the year 2002.
+
 These are the following steps to build covid 19 - Data Visualizer project in python :
 
 - Import libraries.
