@@ -33,11 +33,11 @@ class MainWindow(QDialog):
         self.visualization()
 
 
-    def browsefiles(self): // function to browse the files.
+    def browsefiles(self): # function to browse the files.
         self.filename=QFileDialog.getOpenFileName(self,'Open File','D:','CSV files(*.csv)')
         self.inputfile.setText(self.filename[0])
 
-    def visualization(self): // function to visualize and generate the graph.
+    def visualization(self): # function to visualize and generate the graph.
         try:
             f=self.filename[0]
             df=pd.read_csv(f)
